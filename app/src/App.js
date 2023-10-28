@@ -47,7 +47,7 @@ function App() {
       <br />
 
       {/* ToDo: meme preview */}
-      <div>
+      <div className="meme">
         <span>{topTxt}</span> <br />
         <span>{bottomTxt}</span>
         <img src={"images/" + memeImg + ".jpg"} />

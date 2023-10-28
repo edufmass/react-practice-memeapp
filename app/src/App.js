@@ -1,12 +1,30 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [topTxt, setTopTxt] = useState('');
+  const [bottomTxt, setBottomTxt] = useState('');
+  const [memeImg, setMemeImg] = useState('');
+
+  const onChangeTopTxt = function(e) {
+    //console.log(e.target.value);
+    setTopTxt(e.target.value);
+  }
+
+  const onChangeBottomTxt = function(e) {
+    setBottomTxt(e.target.value);
+  }
+
+  const onChangeMemeImg = function(e) {
+    setMemeImg(e.target.value);
+  }
+
   return (
     <div className="App">
 
       {/* ToDo: select meme image */}
-      <select>
+      <select onChange={onChangeMemeImg}>
         <option value="fire">House on fire</option>
         <option value="futurama">Fry thinking</option>
         <option value="history">Ovnis guy</option>
@@ -17,11 +35,11 @@ function App() {
       <br />
 
       {/* ToDo: input top text */}
-      <input type="text" placeholder="Top text" />
+      <input onChange={onChangeTopTxt} type="text" placeholder="Top text" />
       <br />
 
       {/* ToDo: input bottom text */}
-      <input type="text" placeholder="Bottom text" />
+      <input onChange={onChangeBottomTxt} type="text" placeholder="Bottom text" />
       <br />
 
       {/* ToDo: export meme image with text */}
@@ -30,9 +48,9 @@ function App() {
 
       {/* ToDo: meme preview */}
       <div>
-        <span>Top text</span>
-        <span>Bottom text</span>
-        <img src="" />
+        <span>{topTxt}</span> <br />
+        <span>{bottomTxt}</span>
+        <img src={"images/" + memeImg + ".jpg"} />
       </div>
 
     </div>
